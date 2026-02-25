@@ -5,6 +5,7 @@ import "reflect-metadata";
 import { useContainer, useExpressServer } from "routing-controllers";
 import { Container } from "typedi";
 import { applicationMiddlewares } from "./app.module";
+import { swaggerDocs } from "swagger";
 
 dotenv.config({ quiet: true });
 const app: Application = express();
@@ -29,6 +30,7 @@ async function bootstrap() {
   });
 
   const PORT = process.env.PORT || 5001;
+  swaggerDocs(app, PORT);
   app.listen(PORT, () => {
     console.log(`http://localhost:${PORT}`);
   });
