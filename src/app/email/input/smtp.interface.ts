@@ -36,6 +36,6 @@ export interface SendMailOutput {
   data: {
     accepted: string[];
     rejected: string[];
-    response: string;
+    response: string[];
   };
 }

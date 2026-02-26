@@ -24,7 +24,28 @@ export const swaggerDocs = (app: Application, port: number | string) => {
             type: "object",
             properties: {
               config: { $ref: "#/components/schemas/SendMailConfig" },
-              mail: { $ref: "#/components/schemas/SendMail" },
+              mail: {
+                type: "object",
+                properties: {
+                  from: { type: "string", example: "Company name" },
+                  to: {
+                    type: "array",
+                    example: '["example@gmail.com", "example@outlook.com"]',
+                  },
+                  subject: {
+                    type: "string",
+                    example: "Testing the new application",
+                  },
+                  html: { type: "string", example: "<p>Hello world</p>" },
+                  text: { type: "string", example: "Hello world" },
+                  attachments: {
+                    type: "array",
+                    items: {
+                      $ref: "#/components/schemas/MailAttachment",
+                    },
+                  },
+                },
+              },
             },
           },
         },
@@ -35,7 +56,7 @@ export const swaggerDocs = (app: Application, port: number | string) => {
         version: "1.0.0",
       },
       servers: [
-        { url: "http://localhost:5001", description: "Locally" },
+        { url: "http://localhost:5001/api", description: "Locally" },
         { url: "", description: "Production" },
       ],
     },

@@ -10,7 +10,7 @@ require("reflect-metadata");
 const routing_controllers_1 = require("routing-controllers");
 const typedi_1 = require("typedi");
 const app_module_1 = require("./app.module");
-const swagger_1 = require("swagger");
+const swagger_1 = require("../swagger");
 dotenv_1.default.config({ quiet: true });
 const app = (0, express_1.default)();
 (0, routing_controllers_1.useContainer)(typedi_1.Container);

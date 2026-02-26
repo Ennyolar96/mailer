@@ -78,7 +78,7 @@ let SmtpService = class SmtpService {
                 data: {
                     accepted: accepted.map((item) => item.value.to),
                     rejected: rejected.map((item) => item.reason.to),
-                    response: accepted.map((item) => item.value.response).join(", "),
+                    response: accepted.map((item) => item.value.response),
                 },
             };
         }
@@ -89,7 +89,7 @@ let SmtpService = class SmtpService {
                 data: {
                     accepted: [],
                     rejected: [],
-                    response: "Failed to send email please try again",
+                    response: ["Failed to send email please try again"],
                 },
             };
         }
